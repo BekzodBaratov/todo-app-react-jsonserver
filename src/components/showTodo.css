@@ -1,0 +1,19 @@
+.lists {
+  @apply max-w-[40rem] mx-auto  mt-8;
+}
+.list {
+  @apply bg-white p-3 shadow-md first-letter:uppercase relative pr-12 my-2;
+}
+.list div {
+  @apply absolute right-0 top-1/2 -translate-y-1/2;
+}
+.del,
+.upd {
+  @apply p-3 uppercase font-bold text-gray-800 cursor-pointer transition-all;
+}
+.del {
+  @apply hover:text-red-600;
+}
+.upd {
+  @apply hover:text-blue-600;
+}

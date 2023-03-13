@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import Welcom from "../components/Welcom";
+import Welcom from "../view/Welcom";
 
 export default createBrowserRouter([
   {

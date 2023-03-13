@@ -1,0 +1,12 @@
+.box {
+  @apply flex justify-center;
+}
+.addTodo {
+  @apply border bg-[#0005] rounded-sm overflow-hidden;
+}
+.addTodo input {
+  @apply bg-transparent outline-none px-2 py-1 min-w-[20rem] text-white;
+}
+.addTodo button {
+  @apply text-white px-2 py-1 bg-green-500;
+}
