@@ -11,12 +11,12 @@ const AddTodo = () => {
     fetch("http://localhost:3000/todos", {
       method: "POST",
       headers: { "Content-type": "application/json; charset=UTF-8" },
-      body: JSON.stringify({ title: value, completed: false }),
+      body: JSON.stringify({ title: value.inputValue, completed: false }),
     })
       .then((res) => console.log("ok"))
       .catch((err) => console.log(err));
 
-    value("");
+    setValue({ target: { name: "inputValue", value: "" } });
   };
 
   return (

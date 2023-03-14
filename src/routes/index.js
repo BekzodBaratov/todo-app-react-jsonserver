@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Welcom from "../view/Welcom";
+import Contact from "../view/Contact";
 
 export default createBrowserRouter([
   {
@@ -7,7 +8,7 @@ export default createBrowserRouter([
     element: <Welcom />,
   },
   {
-    path: "/about",
-    element: <p>about</p>,
+    path: "/contact",
+    element: <Contact />,
   },
 ]);
