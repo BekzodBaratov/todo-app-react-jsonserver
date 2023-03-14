@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "./useForm";
 import "./addTodo.css";
 
 const AddTodo = () => {
-  const [inputValue, setInputValue] = useState([]);
+  const [value, setValue] = useForm({ inputValue: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,21 +11,18 @@ const AddTodo = () => {
     fetch("http://localhost:3000/todos", {
       method: "POST",
       headers: { "Content-type": "application/json; charset=UTF-8" },
-      body: JSON.stringify({
-        title: inputValue,
-        completed: false,
-      }),
+      body: JSON.stringify({ title: value, completed: false }),
     })
       .then((res) => console.log("ok"))
       .catch((err) => console.log(err));
 
-    setInputValue("");
+    value("");
   };
 
   return (
     <div className="box">
       <form className="addTodo">
-        <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} type="text" />
+        <input name="inputValue" value={value.inputValue} onChange={setValue} type="text" />
         <button onClick={handleSubmit}>Add Todo</button>
       </form>
     </div>
