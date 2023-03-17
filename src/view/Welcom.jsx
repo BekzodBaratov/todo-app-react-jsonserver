@@ -4,13 +4,15 @@ import ShowTodo from "../components/ShowTodo";
 import "./welcome.css";
 
 const Welcom = () => {
+  const [check, setCheck] = React.useState(false);
+
   return (
     <div className="welcom">
       <header className="header">
-        <AddTodo />
+        <AddTodo check={check} setCheck={setCheck} />
       </header>
       <section>
-        <ShowTodo />
+        <ShowTodo check={check} setCheck={setCheck} />
       </section>
     </div>
   );

@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useInfoContext } from "../context/InfoContext";
 import "./showTodo.css";
 
 const ShowTodo = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3000/todos")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-
+  const { data, check, setCheck } = useInfoContext();
   const updData = (id) => {
     fetch("http://localhost:3000/todos/" + id, {
       method: "PATCH",
@@ -18,13 +12,13 @@ const ShowTodo = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    setCheck(!check);
   };
   const delData = (id) => {
     fetch("http://localhost:3000/todos/" + id, { method: "DELETE" })
       .then((res) => res.json())
       .then((data) => console.log(data));
   };
-
   return (
     <ul className="lists">
       {data.map((todo) => {

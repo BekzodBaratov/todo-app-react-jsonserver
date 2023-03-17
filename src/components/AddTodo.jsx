@@ -1,9 +1,11 @@
 import React from "react";
 import { useForm } from "../hooks/useForm";
 import "./addTodo.css";
+import { useInfoContext } from "../context/InfoContext";
 
 const AddTodo = () => {
   const [value, setValue] = useForm({ inputValue: "" });
+  const { check, setCheck } = useInfoContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +15,10 @@ const AddTodo = () => {
       headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify({ title: value.inputValue, completed: false }),
     })
-      .then((res) => console.log("ok"))
+      .then((res) => {
+        console.log("ok");
+        setCheck(!check);
+      })
       .catch((err) => console.log(err));
 
     setValue({ target: { name: "inputValue", value: "" } });
